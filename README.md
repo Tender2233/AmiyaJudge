@@ -1,2 +1,2 @@
-# AmiyaJudhe
+# AmiyaJudge
 AmiyaJudge
