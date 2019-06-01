@@ -26,10 +26,8 @@ def fetData(filename):
  
         img = tf.decode_raw(features['img_raw'], tf.uint8)
         label = features['label']
-        try:
-            img = tf.reshape(img, [100, 100])/255  #reshape为128*128的3通道图片
-        except:
-            print(sess.run(img))
+        img = tf.reshape(img, [100, 100])/255  #reshape为128*128的3通道图片
+    
     
         coord=tf.train.Coordinator()
         threads= tf.train.start_queue_runners(coord=coord)
@@ -37,11 +35,11 @@ def fetData(filename):
         imagelist=[]
         labellist=[]
 
-        for i in range(115):
+        for i in range(1590):
             init_op = tf.initialize_all_variables()
             sess.run(init_op)
 
-            imagelist.append(sess.run(img))
+            imagelist.append(img)
             labellist.append(sess.run(label))
 
             # print(img.shape)
@@ -61,4 +59,4 @@ def fetData(filename):
 if __name__=="__main__":
     img,label=fetData("tfrecord_train.tfrecords")
     print(img)
-    print(label)
+    print(label)    
