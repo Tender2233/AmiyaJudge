@@ -8,8 +8,8 @@ import numpy as np
 
 
 def getdata():
-    x_data = []
-    y_data = []
+    # x_data = []
+    # y_data = []
     filename_queue = tf.train.string_input_producer(
         ["tfrecord_train.tfrecords"])  #读入流中
     reader = tf.TFRecordReader()
@@ -34,15 +34,17 @@ def getdata():
             # img=Image.fromarray(example, 'RGB')#这里Image是之前提到的
             # img.save(cwd+str(i)+'_''Label_'+str(l)+'.jpg')#存下图片
             print(example, l)
-            x_data.append(example)
-            y_data.append(l)
+            # x_data.append(example)
+            # y_data.append(l)
         coord.request_stop()
         coord.join(threads)
-        y_data = sess.run(tf.one_hot(y_data, 3))
-        return x_data, y_data
+        sess.run(init_op)
+        # y_data = sess.run(tf.one_hot(y_data, 3))
+        # return x_data, y_data
 
 
 if __name__ == '__main__':
-    x, y = getdata()
-    print(x.shape)
-    print(y.shape)
+    # x, y = getdata()
+    # print(x.shape)
+    # print(y.shape)
+    getdata()
