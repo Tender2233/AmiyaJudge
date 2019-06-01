@@ -4,7 +4,7 @@ from keras.layers import *
 import tensorflow as tf
 import time
 import os
-from getData import fetData
+from getData import *
 #hyper things
 train_epochs = 10
 batch_size = 10
@@ -79,4 +79,5 @@ model.compile(optimizer=Adam(learning_rate),
 
 
 x_data,y_data=fetData("tfrecord_train.tfrecords")
-print(x_data,y_data)
+# print(x_data,y_data)
+model.fit(x_data,y_data,validation_split=0.15, epochs=20, batch_size=30)

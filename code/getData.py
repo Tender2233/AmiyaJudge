@@ -10,7 +10,7 @@ def fetData(filename):
         filename_queue = tf.train.string_input_producer([filename]) #读入流中
         reader = tf.TFRecordReader()
 
-        _, serialized_example = reader.read(filename_queue)
+        _, serialized_exagirtmple = reader.read(filename_queue)
 
         #filename_queue = tf.train.string_input_producer([filename_queue])#生成一个queue队列
 
@@ -26,7 +26,7 @@ def fetData(filename):
  
         img = tf.decode_raw(features['img_raw'], tf.uint8)
         label = features['label']
-        img = tf.reshape(img, [100, 100])/255  #reshape为128*128的3通道图片
+        img = tf.reshape(img, [100, 100,1])/255  #reshape为128*128的3通道图片
     
     
         coord=tf.train.Coordinator()
@@ -35,11 +35,11 @@ def fetData(filename):
         imagelist=[]
         labellist=[]
 
-        for i in range(1590):
+        for i in range(1589):
             init_op = tf.initialize_all_variables()
             sess.run(init_op)
 
-            imagelist.append(img)
+            imagelist.append(sess.run(img))
             labellist.append(sess.run(label))
 
             # print(img.shape)
@@ -53,6 +53,7 @@ def fetData(filename):
         #print(label)
         coord.request_stop()
         coord.join(threads)
+        labellist=sess.run(tf.one_hot(labellist,3))
     return imagelist,labellist
 
 
