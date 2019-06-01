@@ -4,6 +4,7 @@ from keras.layers import *
 import tensorflow as tf
 import time
 import os
+from getData import fetData
 #hyper things
 train_epochs = 10
 batch_size = 10
@@ -75,3 +76,7 @@ model.compile(optimizer=Adam(learning_rate),
               metrics=['accuracy'])
 
 #TODO get the data , train the modol
+
+
+x_data,y_data=fetData("tfrecord_train.tfrecords")
+print(x_data,y_data)
