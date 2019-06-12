@@ -4,8 +4,9 @@ from keras.layers import *
 import tensorflow as tf
 import time
 import os
-from getData import *
-os.environ["CUDA_VISIBLE_DEVICES"] = "3"
+#from getData import *
+from datasetreader import *
+#os.environ["CUDA_VISIBLE_DEVICES"] = "3"
 #hyper things
 train_epochs = 10
 batch_size = 10
