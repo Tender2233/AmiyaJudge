@@ -12,7 +12,11 @@ train_epochs = 10
 batch_size = 10
 learning_rate = 0.01
 test_ratio = 0.1
-
+config = tf.ConfigProto()
+# 指定可见显卡
+config.gpu_options.visible_device_list="1"
+#不满显存, 自适应分配
+config.gpu_options.allow_growth=True
 #the picture size
 imginput = Input(shape=(100, 100, 1))
 
@@ -112,7 +116,7 @@ model.compile(optimizer=Adam(learning_rate),
 #TODO get the data , train the modol
 
 
-x_data,y_data=fetData("tfrecord_train.tfrecords")
+x_data,y_data=getdate("tfrecord_train.tfrecords")
 # print(x_data.shape)
 # print(y_data.shape)
 # print(x_data,y_data)

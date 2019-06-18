@@ -47,7 +47,7 @@ def getdata(filename):
                 break
 
 
-    x_train_data = np.array(x_data)
+    x_train_data = np.array(x_data).reshape(-1,100,100,1)/255
     y_train_data = np.array(y_data)
     
 
