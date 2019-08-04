@@ -1,5 +1,5 @@
 # AmiyaJudge
-AmiyaJudge
+AmiyaJudge is meant to guess what is the animal in the pic from three(type)
 
 
 # status  
