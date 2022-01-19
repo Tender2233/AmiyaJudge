@@ -13,7 +13,7 @@ borther others.
 
 # data process  
 before you make your onw tfrecord file.You need to preprocess the imgs into 100x100x1.This part make sure
- the fury's color won't affect the model.the less data image you have ,the color effects even more disappointing.  
+ the fur's color won't affect the model.the less data image you have ,the color effects even more disappointing.  
 
 # trans the data to model  
 after you preprocess the img data.
