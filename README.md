@@ -7,7 +7,7 @@ AmiyaJudhe is now public.We are happy to see you now find this repo.
 
 # code part  
 The model is written by keras in the modol.py(not model.py)  
-If you are wandering how we get the data ,just check the python Crawler,but please make sure you won't
+If you are wondering how we get the data ,just check the python Crawler,but please make sure you won't
 borther others.
 
 
